@@ -1,64 +1,60 @@
-# 🏓 Jogando Ping-Pong 🏓
-### Este é um projeto simples do famoso jogo Pong implementado em Python usando a biblioteca Pygame.
+# pong_py
+
+### Implementação simples do jogo Pong com a biblioteca PyGame
 
 ![Fig.gif](parte.gif)
 
-# Instalação do Pacote 🔧
+# Para instalar o pacote...
 
 ```bash
 pip install -r requirements.txt
 ```
 
-# Executando o jogo ▶️
+# Para executar o script do jogo:
 
 ```bash
 python main.py
 ```
 
-# Estrutura do Código 🏗️ 
-
-### Aqui vamos mostrar como montar o código e depois ensinamos a jogar
-
-## Importações necessaria:
+# Códigos com explicação
+## Imports
 ```bash
 import pygame
 from pygame import mixer
 import sys
 ```
 
-# 🎮 Primeiros passos:
-
-🪧 Defenir tamanho da tela:
+Tamanho da tela:
 
 ```bash
   self.SCREEN_WIDTH = 800
   self.SCREEN_HEIGHT = 600
 ```
 
-🏓 Definir o tamanho das raquetes:
+Tamanho das raquetes:
 ```bash
   self.PADDLE_WIDTH = 10
   self.PADDLE_HEIGHT = 60
 ```
 
-⚾Definir o tamanho da bolinha:
+Tamanho da bola:
 ```bash
   self.BALL_SIZE = 10
 ```
 
-🤾🏽‍♂️🤾🏽‍♂️Definindo os jogadores:
+Jogadores:
 ```bash
   self.score_a = 0
   self.score_b = 0
 ```
 
-🔤 Definindo a fonte a ser usada:
+Fonte de exibição:
 ```bash
   self.font_file = "font/PressStart2P-Regular.ttf"
   self.font = pygame.font.Font(self.font_file, 36)
 ```
 
-🎶 Definindo a musica:
+Música e efeitos sonoros:
 ```bash
   self.mixer.music.load("audios/music_game.mp3")
   self.mixer.music.set_volume(0.3)
@@ -67,9 +63,8 @@ import sys
   self.collision_sound_B = mixer.Sound("audios/Sound_B.wav")
   self.point_sound = mixer.Sound("audios/hoohooo.wav")
 ```
-# 🎮 Segundo passo:
 
-⚾ Definir o movimento das raquetes e a possição da bolinha no inicio do jogo:
+Definir o movimento das raquetes e a possição da bolinha no inicio do jogo:
 Sendo que "paddle_a" raquete esquerda do jogador 1 e "paddle_b" raquete direita do jogador 2.
 ```bash
 self.paddle_a = Paddle(20, self.SCREEN_HEIGHT // 2 - self.PADDLE_HEIGHT // 2, self.PADDLE_WIDTH, self.PADDLE_HEIGHT, self)
@@ -77,8 +72,8 @@ self.paddle_b = Paddle(self.SCREEN_WIDTH - 20 - self.PADDLE_WIDTH, self.SCREEN_H
 self.ball = Ball(self.SCREEN_WIDTH // 2 - self.BALL_SIZE // 2, self.SCREEN_HEIGHT // 2 - self.BALL_SIZE // 2, self.BALL_SIZE, self.BALL_SPEED, self.BALL_SPEED)
 ```
 
-🏓 Movimento as raquetes:
-🤾 Paddle A | Jogador 1
+Movimento das raquetes:
+Paddle A | Jogador 1
 
 ```bash
  # Movimento Vertical Paddle A
@@ -94,7 +89,7 @@ self.ball = Ball(self.SCREEN_WIDTH // 2 - self.BALL_SIZE // 2, self.SCREEN_HEIGH
       self.paddle_a.movex(self.PADDLE_SPEED)
 ```
 
-🤾 Paddle B | Jogador 2
+Paddle B | Jogador 2
 
 ```bash
 # Movimento Vertical Paddle B
@@ -110,7 +105,7 @@ self.ball = Ball(self.SCREEN_WIDTH // 2 - self.BALL_SIZE // 2, self.SCREEN_HEIGH
        self.paddle_b.movex(self.PADDLE_SPEED)
 ```
 
-⚾ Atualização da posição bolinha:
+Atualização da posição da bola:
 
 ```bash
     self.ball.move()
@@ -126,13 +121,13 @@ self.ball = Ball(self.SCREEN_WIDTH // 2 - self.BALL_SIZE // 2, self.SCREEN_HEIGH
                 self.collision_sound_B.play()
 ```
 
-⚾ Bolinha bate em cima e embaixo:
+Bola bate em cima e embaixo:
 ```bash
  if self.ball.top <= 0 or self.ball.bottom >= self.SCREEN_HEIGHT:
     self.ball.reverse_dy()
 ```
 
-🪧 Fazer o placar e depois atualiza a tela:
+Fazer o placar e depois atualiza a tela:
 ```bash
 if self.ball.left <= 0:
     self.score_b += 1
@@ -158,11 +153,7 @@ Atualiza a tela:
 pygame.display.flip()
 ```
 
-## 🎮 Terceiro passo:
-
-Assim finalizamos o jogo de ping pong:
-
-Mostrando o resultado final na tela com musica:
+Mostrando o resultado final na tela com a música:
 
 ```bash
     def end_game(self, winner):
@@ -188,26 +179,13 @@ Mostrando o resultado final na tela com musica:
 
 ```
 
-# 🏓 Como jogar 🏓
+# Para jogar:
 
-# 1° Passo:
-Escolha o seu adversário
-
-# 2° Passo:
-Dar o Play no canto superior direito;
-
-# 3° Passo:
-Aperte o espaço para iniciar o jogo:
-
-# 4° Passo:
+Escolha o seu adversário;
+Dê o play no canto superior à direita;
+Aperte o espaço para iniciar o jogo;
 No teclado ultilize esses botões:
-
 | Jogador 1 | Jogador 2 |
 | --- | --- |
 | W: para cima | ⬆️: para cima |
 | S: para baixo | ⬇️: para baixo |
-
-
-# Por fim mostra quem é o ganhador!!!
-
-### 🍀 BOA SORTE 🍀 ###
