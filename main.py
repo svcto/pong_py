@@ -1,8 +1,5 @@
-# main.py
-# pyInstaller
-# pyinstaller --onefile your_script.py
 import pygame
-import sys
+import sys 
 from pong_classes import Paddle, Ball, Game
 
 game_instance = Game()
