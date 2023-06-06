@@ -1,60 +1,64 @@
-# pong_py
-
-### Implementação simples do jogo Pong com a biblioteca PyGame
+# 🏓 Jogando Ping-Pong 🏓
+### Este é um projeto simples do famoso jogo Pong implementado em Python usando a biblioteca Pygame.
 
 ![Fig.gif](parte.gif)
 
-# Para instalar o pacote...
+# Instalação do Pacote 🔧
 
 ```bash
 pip install -r requirements.txt
 ```
 
-# Para executar o script do jogo:
+# Executando o jogo ▶️
 
 ```bash
 python main.py
 ```
 
-# Códigos com explicação
-## Imports
+# Estrutura do Código 🏗️ 
+
+### Aqui vamos mostrar como montar o código e depois ensinamos a jogar
+
+## Importações necessaria:
 ```bash
 import pygame
 from pygame import mixer
 import sys
 ```
 
-Tamanho da tela:
+# 🎮 Primeiros passos:
+
+🪧 Defenir tamanho da tela:
 
 ```bash
   self.SCREEN_WIDTH = 800
   self.SCREEN_HEIGHT = 600
 ```
 
-Tamanho das raquetes:
+🏓 Definir o tamanho das raquetes:
 ```bash
   self.PADDLE_WIDTH = 10
   self.PADDLE_HEIGHT = 60
 ```
 
-Tamanho da bola:
+⚾Definir o tamanho da bolinha:
 ```bash
   self.BALL_SIZE = 10
 ```
 
-Jogadores:
+🤾🏽‍♂️🤾🏽‍♂️Definindo os jogadores:
 ```bash
   self.score_a = 0
   self.score_b = 0
 ```
 
-Fonte de exibição:
+🔤 Definindo a fonte a ser usada:
 ```bash
   self.font_file = "font/PressStart2P-Regular.ttf"
   self.font = pygame.font.Font(self.font_file, 36)
 ```
 
-Música e efeitos sonoros:
+🎶 Definindo a musica:
 ```bash
   self.mixer.music.load("audios/music_game.mp3")
   self.mixer.music.set_volume(0.3)
@@ -63,8 +67,9 @@ Música e efeitos sonoros:
   self.collision_sound_B = mixer.Sound("audios/Sound_B.wav")
   self.point_sound = mixer.Sound("audios/hoohooo.wav")
 ```
+# 🎮 Segundo passo:
 
-Definir o movimento das raquetes e a possição da bolinha no inicio do jogo:
+⚾ Definir o movimento das raquetes e a possição da bolinha no inicio do jogo:
 Sendo que "paddle_a" raquete esquerda do jogador 1 e "paddle_b" raquete direita do jogador 2.
 ```bash
 self.paddle_a = Paddle(20, self.SCREEN_HEIGHT // 2 - self.PADDLE_HEIGHT // 2, self.PADDLE_WIDTH, self.PADDLE_HEIGHT, self)
@@ -72,8 +77,8 @@ self.paddle_b = Paddle(self.SCREEN_WIDTH - 20 - self.PADDLE_WIDTH, self.SCREEN_H
 self.ball = Ball(self.SCREEN_WIDTH // 2 - self.BALL_SIZE // 2, self.SCREEN_HEIGHT // 2 - self.BALL_SIZE // 2, self.BALL_SIZE, self.BALL_SPEED, self.BALL_SPEED)
 ```
 
-Movimento das raquetes:
-Paddle A | Jogador 1
+🏓 Movimento as raquetes:
+🤾 Paddle A | Jogador 1
 
 ```bash
  # Movimento Vertical Paddle A
@@ -89,7 +94,7 @@ Paddle A | Jogador 1
       self.paddle_a.movex(self.PADDLE_SPEED)
 ```
 
-Paddle B | Jogador 2
+🤾 Paddle B | Jogador 2
 
 ```bash
 # Movimento Vertical Paddle B
@@ -105,7 +110,7 @@ Paddle B | Jogador 2
        self.paddle_b.movex(self.PADDLE_SPEED)
 ```
 
-Atualização da posição da bola:
+⚾ Atualização da posição bolinha:
 
 ```bash
     self.ball.move()
@@ -121,13 +126,13 @@ Atualização da posição da bola:
                 self.collision_sound_B.play()
 ```
 
-Bola bate em cima e embaixo:
+⚾ Bolinha bate em cima e embaixo:
 ```bash
  if self.ball.top <= 0 or self.ball.bottom >= self.SCREEN_HEIGHT:
     self.ball.reverse_dy()
 ```
 
-Fazer o placar e depois atualiza a tela:
+🪧 Fazer o placar e depois atualiza a tela:
 ```bash
 if self.ball.left <= 0:
     self.score_b += 1
@@ -153,7 +158,11 @@ Atualiza a tela:
 pygame.display.flip()
 ```
 
-Mostrando o resultado final na tela com a música:
+## 🎮 Terceiro passo:
+
+Assim finalizamos o jogo de ping pong:
+
+Mostrando o resultado final na tela com musica:
 
 ```bash
     def end_game(self, winner):
@@ -179,14 +188,26 @@ Mostrando o resultado final na tela com a música:
 
 ```
 
-# Para jogar:
+# 🏓 Como jogar 🏓
 
-Escolha o seu adversário;
-Dê o play no canto superior à direita;
-Aperte o espaço para iniciar o jogo;
+# 1° Passo:
+Escolha o seu adversário
+
+# 2° Passo:
+Dar o Play no canto superior direito;
+
+# 3° Passo:
+Aperte o espaço para iniciar o jogo:
+
+# 4° Passo:
 No teclado ultilize esses botões:
+
 | Jogador 1 | Jogador 2 |
 | --- | --- |
 | W: para cima | ⬆️: para cima |
 | S: para baixo | ⬇️: para baixo |
 
+
+# Por fim mostra quem é o ganhador!!!
+
+### 🍀 BOA SORTE 🍀 ###
