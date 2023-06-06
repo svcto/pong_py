@@ -2,8 +2,6 @@
 
 ### Implementação simples do jogo Pong com a biblioteca PyGame
 
-![Fig.gif](parte.gif)
-
 # Para instalar o pacote...
 
 ```bash
@@ -189,3 +187,6 @@ No teclado ultilize esses botões:
 | --- | --- |
 | W: para cima | ⬆️: para cima |
 | S: para baixo | ⬇️: para baixo |
+
+
+![Fig.gif](parte.gif)
