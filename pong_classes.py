@@ -1,5 +1,5 @@
-# pong_classes.py
 import pygame
+
 from pygame import mixer
 import sys
 
@@ -134,7 +134,7 @@ class Game:
             if keys[pygame.K_RIGHT] and self.paddle_b.right < self.SCREEN_WIDTH:
                 self.paddle_b.movex(self.PADDLE_SPEED)
 
-            # Atualize a posição da bola
+            # Atualize a posição da bola 
             self.ball.move()
 
             if self.ball.colliderect(self.paddle_a):
