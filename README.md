@@ -16,14 +16,13 @@ pip install -r requirements.txt
 python main.py
 ```
 
-# Código
+# Códigos com explicação
+## Imports
 ```bash
 import pygame
 from pygame import mixer
 import sys
 ```
-
-# Primeiros passos:
 
 Tamanho da tela:
 
